@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makhokolotso Maria Khapetsi</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Libre+Franklin:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/telemetry_sdk.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    body.page-loaded {
+      opacity: 1;
+    }
+
+    .fade-item {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing {
+      overflow: hidden;
+      border-right: 2px solid #daa520;
+      display: inline-block;
+      animation: typing 4s steps(80, end) forwards, blink 0.8s infinite;
+      max-width: 0;
+      white-space: normal;
+    }
+
+    @keyframes typing {
+      from { max-width: 0; }
+      to { max-width: 100%; }
+    }
+
+    #about-text {
+      opacity: 1;
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    #about-text.done {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* optional subtle “settle” effect */
+    #about-text.finishing {
+      animation: settle 0.6s ease-out;
+    }
+
+    @keyframes settle {
+      0% {
+        transform: translateY(6px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    #about-text::after {
+      content: "|";
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+    }
+
+    #about-text.done::after {
+      content: "";
+      animation: none;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .typing {
+        white-space: normal;
+        border-right: none;
+        width: auto;
+        animation: fadeTypingMobile 1.5s ease forwards;
+      }
+
+      @keyframes fadeTypingMobile {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+
+<body class="h-full overflow-auto bg-[#1a1024] text-[#f5efe6] font-body">
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-[#1a1024]/95 backdrop-blur-sm border-b border-[#d4af37]/20">
+    <div class="w-full px-8 py-4 flex items-center justify-between">
+        <a href="index.html"
+           class="font-heading text-xl font-bold text-[#d4af37]">
+            Makhokolotso Khapetsi
+        </a>
+        <div class="hidden md:flex gap-8 text-sm tracking-wide">
+            <a href="about.html" class="nav-link text-[#f5efe6]/80 hover:text-[#f8d7e3]">About</a>
+            <a href="books.html" class="nav-link text-[#f5efe6]/80 hover:text-[#f8d7e3]">Books</a>
+            <a href="ventures.html" class="nav-link text-[#f5efe6]/80 hover:text-[#f8d7e3]">Ventures</a>
+            <a href="mission.html" class="nav-link text-[#f5efe6]/80 hover:text-[#f8d7e3]">Mission</a>
+            <a href="contact.html" class="nav-link text-[#f5efe6]/80 hover:text-[#f8d7e3]">Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-[#d4af37]">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
+  </nav>
+
+  <!-- About -->
+  <section id="about" class="about-section min-h-full px-6 py-24">
+
+    <video class="about-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="videos/Download (3).mp4" type="video/mp4">
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="about-overlay"></div>
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="absolute top-20 right-10 w-72 h-72 bg-[#f8d7e3]/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-10 w-96 h-96 bg-[#6b4fa1]/20 rounded-full blur-3xl"></div>
+      <div class="grid md:grid-cols-12 gap-12 items-start">
+
+        <!-- IMAGE -->
+        <div class="md:col-span-4 fade-item">
+          <div class="sticky top-24 rounded-2xl overflow-hidden border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl">
+            <img src="images/Prof.jpg"
+                 alt="Makhokolotso Maria Khapetsi"
+                 class="w-full h-[750px] object-cover">
+          </div>
+        </div>
+
+        <!-- TEXT -->
+        <div class="md:col-span-8">
+
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-6 text-[#f8d7e3] fade-item">
+            About
+          </h2>
+
+          <p id="about-text" class="text-[#f5f0e8]/80 leading-relaxed mb-4"></p>
+          
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            Driven by faith and a passion for inspiring others, she has dedicated her life to creating platforms that encourage personal growth, healing, and purpose.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            Through her writing, speaking engagements, businesses, and initiatives, she continues to inspire others to embrace their purpose, trust God's plan, and pursue their dreams with courage and determination.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            By the end of 2020, I hosted my first "Greet and Meet" event for single mothers, where women came together to connect, share experiences, encourage one another, and heal together. That event reminded me how powerful it is when women support each other.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            As my work continued growing, I also founded a faith-inspired clothing brand called <strong>Hey Queen</strong>, created to encourage women to embrace their identity, confidence, and purpose.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            From 2020 until today, I have continued speaking at public events, churches, podcasts, community gatherings, radio stations, and online platforms. Every opportunity allows me to touch lives and inspire meaningful change.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            In 2025, I became a published author alongside other women when we co-authored <strong>Her Story, Her Journey</strong>. Through that experience, we formed a movement called <strong>Authors on the Move</strong>, a group of women committed to using writing as a tool for healing, storytelling, and empowerment.
+          </p>
+
+          <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+            In May 2026, I published my own journal titled <strong>My Prayer Journal</strong>, a faith-based journal created to help people reflect, pray, heal, and reconnect with themselves spiritually. Writing became another extension of my voice and purpose.
+          </p>
+
+          <button id="read-more-btn" class="text-[#daa520] font-medium hover:underline mb-4 fade-item">
+            Read More
+          </button>
+
+          <div id="more-about" class="hidden space-y-4">
+            <p class="text-[#f5f0e8]/80 leading-relaxed mb-4 fade-item">
+              I do not live my life only for myself. I am deeply aware of what is happening around me—the pain people carry, the struggles women face, the confusion many young people experience, and the need for healing in communities. Because of that awareness, I continue evolving, learning, and growing so that I can better serve others.
+            </p>
+
+            <p class="text-[#f5f0e8]/80 leading-relaxed fade-item">
+              I strongly believe in self-development and research. I constantly read, learn, observe, and expand my knowledge so that I can become more effective in the work I do. My journey is still continuing, and I believe my story is only the beginning of something greater.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 px-6 border-t border-[#2a2216]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:grid md:grid-cols-3 items-center gap-4">
+        <div></div>
+
+        <div class="text-center">
+          <p class="text-[#f5f0e8]/40 text-sm">
+            © 2026 Makhokolotso Maria Khapetsi. All rights reserved.
+          </p>
+        </div>
+
+        <div class="flex justify-end items-center gap-5 text-xl">
+          <a href="https://wa.me/0834165732" target="_blank" class="text-[#f5f0e8]/70 hover:text-green-500 transition">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+
+          <a href="mailto:myturnaround2020@gmail.com" class="text-[#f5f0e8]/70 hover:text-[#daa520] transition">
+            <i class="fas fa-envelope"></i>
+          </a>
+
+          <a href="https://www.facebook.com/makhokolotsomaria.khapetsi?mibextid=ZbWKwL" target="_blank" class="text-[#f5f0e8]/70 hover:text-blue-500 transition">
+            <i class="fab fa-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/makhokolotso_khapetsi/" target="_blank" class="text-[#f5f0e8]/70 hover:text-pink-500 transition">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/@makhokolotsokhapetsi?_r=1&_t=ZS-96uBETvZ48u" target="_blank" class="text-[#f5f0e8]/70 hover:text-white transition flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24"
+                 fill="currentColor"
+                 class="w-6 h-6">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.68h-3.13v12.4a2.69 2.69 0 1 1-2.69-2.69c.21 0 .41.02.6.07V8.59a5.83 5.83 0 1 0 5.22 5.8V8.1a7.94 7.94 0 0 0 4.77 1.6V6.69z"/>
+            </svg>
+          </a>
+
+          <a href="https://m.youtube.com/@makhokolotsomariakhapetsi3625" target="_blank" rel="noopener noreferrer" class="text-[#f5f0e8]/70 hover:text-red-600 transition">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const btn = document.getElementById("read-more-btn");
+    const content = document.getElementById("more-about");
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("page-loaded");
+
+      const items = document.querySelectorAll(".fade-item");
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, 200 + index * 180);
+      });
+    });
+
+    btn.addEventListener("click", () => {
+      content.classList.toggle("hidden");
+      btn.textContent = content.classList.contains("hidden") ? "Read More" : "Read Less";
+
+      if (!content.classList.contains("hidden")) {
+        const hiddenItems = content.querySelectorAll(".fade-item");
+        hiddenItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add("show");
+          }, index * 180);
+        });
+      }
+    });
+  </script>
+  <script>
+    const fullText = `Makhokolotso Maria Khapetsi is an author, entrepreneur, event host, mentor, and advocate for women's empowerment. Driven by faith and a passion for inspiring others, she has dedicated her life to creating platforms that encourage personal growth, healing, and purpose.`;
+
+    const aboutTextEl = document.getElementById("about-text");
+    const aboutSection = document.getElementById("about");
+
+    let index = 0;
+    let started = false;
+
+    function typeWriter() {
+      if (index < fullText.length) {
+        const char = fullText.charAt(index);
+        aboutTextEl.innerHTML += char;
+        index++;
+
+        // natural pacing
+        let delay = 18;
+
+        if (char === ".") delay = 450;
+        if (char === ",") delay = 160;
+        if (char === " ") delay = 10;
+
+        setTimeout(typeWriter, delay);
+
+      }else {
+        aboutTextEl.classList.add("done");
+        aboutTextEl.classList.add("finishing");
+
+        setTimeout(() => {
+          aboutTextEl.classList.remove("finishing");
+        }, 600);
+      }
+
+    }
+
+    const observerTyping = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          aboutTextEl.innerHTML = ""; // safety reset
+          typeWriter();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observerTyping.observe(aboutSection);
+  </script>
+</body>
+</html>
