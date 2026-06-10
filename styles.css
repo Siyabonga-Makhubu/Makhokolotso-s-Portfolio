@@ -1,0 +1,590 @@
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    box-sizing: border-box; 
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fade-in.animate {
+    animation: fadeUp 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fade-in-delay-1 {
+    animation-delay: 0.5s;
+}
+
+.fade-in-delay-2 {
+    animation-delay: 1s;
+}
+
+.fade-in-delay-3 {
+    animation-delay: 1.5s;
+}
+
+.fade-in-delay-4 {
+    animation-delay: 2s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    
+.gold-gradient {
+        background: linear-gradient(135deg, #b8860b, #daa520, #f0c040);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+}
+.card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+}
+.nav-link { position: relative; 
+}
+.nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #daa520; transition: width 0.3s ease; 
+}
+.nav-link:hover::after { width: 100%; 
+}
+section { scroll-margin-top: 80px; 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.gold-gradient {
+  background: linear-gradient(90deg, #d4af37, #f8d7e3, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-delay-1 { animation-delay: 0.2s; }
+.fade-in-delay-2 { animation-delay: 0.4s; }
+.fade-in-delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+.mobile-menu.open {
+  max-height: 500px;
+  opacity: 1;
+}
+.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:0 24px;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    background-image:url("images/board.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    animation: heroZoom 15s ease-in-out infinite alternate;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(26,16,36,0.65);
+}
+
+.hero .relative{
+    position:relative;
+    z-index:2;
+}
+
+@keyframes heroZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.08);
+    }
+}
+/* =========================
+   MISSION SECTION
+========================= */
+
+.mission-section{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    padding:120px 24px;
+}
+
+/* Background Image */
+.mission-bg{
+    position:absolute;
+    inset:0;
+    background-image:url("images/signature.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    animation:
+        bgFadeIn 2s ease forwards,
+        missionZoom 25s ease-in-out infinite alternate;
+
+    transform:scale(1);
+    opacity:0;
+}
+
+/* Dark Overlay */
+.mission-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(26,16,36,0.75);
+    z-index:1;
+}
+
+/* Content Container */
+.mission-section .relative{
+    position:relative;
+    z-index:3;
+
+    opacity:0;
+    animation:contentFade 1.5s ease forwards;
+    animation-delay:0.6s;
+}
+
+/* Heading Animation */
+.mission-section h2{
+    opacity:0;
+    transform:translateY(50px);
+    animation:headingUp 1.2s ease forwards;
+}
+
+/* Mission heading */
+.mission-section h2:first-of-type{
+    animation-delay:1s;
+}
+
+/* Vision heading */
+.mission-section h2:nth-of-type(2){
+    animation-delay:1.6s;
+}
+
+/* Paragraphs */
+.mission-section p{
+    opacity:0;
+    animation:contentFade 1.2s ease forwards;
+}
+
+.mission-section p:nth-of-type(1){ animation-delay:1.3s; }
+.mission-section p:nth-of-type(2){ animation-delay:1.5s; }
+.mission-section p:nth-of-type(3){ animation-delay:1.8s; }
+.mission-section p:nth-of-type(4){ animation-delay:2s; }
+.mission-section p:nth-of-type(5){ animation-delay:2.2s; }
+
+/* Tags */
+.mission-section .flex{
+    opacity:0;
+    animation:contentFade 1.2s ease forwards;
+    animation-delay:2.4s;
+}
+
+/* Background Fade In */
+@keyframes bgFadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* Slow Zoom */
+@keyframes missionZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.12);
+    }
+}
+
+/* Whole Section Fade */
+@keyframes contentFade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* Heading Slide Up */
+@keyframes headingUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* =========================
+   VENTURES BACKGROUND
+========================= */
+
+.ventures-section{
+    position:relative;
+    overflow:hidden;
+    min-height:100vh;
+    padding:120px 24px;
+}
+
+/* Background Image */
+.ventures-bg{
+    position:absolute;
+    inset:0;
+
+    background-image:url("./images/board2.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    animation: venturesZoom 25s ease-in-out infinite alternate;
+
+    z-index:0;
+}
+
+/* Dark Luxury Overlay */
+.ventures-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(26,16,36,0.88),
+            rgba(42,23,64,0.82)
+        );
+
+    z-index:1;
+}
+
+/* Content */
+.ventures-section .max-w-6xl{
+    position:relative;
+    z-index:2;
+}
+
+/* Slow Zoom */
+@keyframes venturesZoom{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.1);
+    }
+}
+
+/* =========================
+   PAGE FADE IN
+========================= */
+
+.fade-page{
+    opacity:0;
+    transform:translateY(40px);
+    animation:pageFade 1.8s ease forwards;
+}
+
+@keyframes pageFade{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   HEADING FADE UP
+========================= */
+
+h2,
+h3{
+    opacity:0;
+    transform:translateY(30px);
+    animation:headingFade 1.4s ease forwards;
+}
+
+h2{
+    animation-delay:.3s;
+}
+
+h3{
+    animation-delay:.6s;
+}
+
+@keyframes headingFade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.glass-card{
+    background: rgba(20, 12, 35, 0.25);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.35);
+
+    transition: all .3s ease;
+}
+
+.glass-card:hover{
+    background: rgba(20,12,35,0.18);
+    border-color: rgba(212,175,55,0.35);
+    transform: translateY(-4px);
+}
+.buy-btn{
+    background: linear-gradient(135deg,#d4af37,#f8d7e3);
+    color:#1a1024;
+    font-weight:700;
+    padding:10px 18px;
+    border-radius:12px;
+    transition:all .3s ease;
+}
+
+.buy-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(212,175,55,.35);
+}
+/* =========================
+   ABOUT VIDEO BACKGROUND
+========================= */
+
+.about-section{
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.about-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: 0;
+
+    animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+.about-overlay{
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        rgba(15,10,25,.82),
+        rgba(26,16,36,.88)
+    );
+
+    backdrop-filter: blur(2px);
+
+    z-index: 1;
+}
+
+.about-section .max-w-7xl{
+    position: relative;
+    z-index: 2;
+}
+
+/* Slow cinematic zoom */
+@keyframes slowZoom{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.08);
+    }
+}
+/* =========================
+   BOOKS BACKGROUND
+========================= */
+
+.books-section{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.books-bg{
+    position: absolute;
+    inset: 0;
+
+    background-image: url("./images/interview.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+    animation: booksZoom 25s ease-in-out infinite alternate;
+}
+
+.books-overlay{
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        rgba(26,16,36,.88),
+        rgba(42,23,64,.82)
+    );
+
+    z-index: 1;
+}
+
+.books-section .max-w-5xl{
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes booksZoom{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.08);
+    }
+}
+/* =========================
+   CONTACT BACKGROUND
+========================= */
+
+#contact{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.contact-bg{
+    position: absolute;
+    inset: 0;
+
+    background-image: url("./images/interview.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+    animation: contactZoom 20s ease-in-out infinite alternate;
+}
+
+.contact-overlay{
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        rgba(26,16,36,.88),
+        rgba(42,23,64,.82)
+    );
+
+    z-index: 1;
+}
+
+@keyframes contactZoom{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.08);
+    }
+}
+.glass-contact{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    padding: 2rem;
+    border-radius: 24px;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.35);
+}
